@@ -1,27 +1,50 @@
-{
- "cells": [
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "0.first_commit\n",
-    "\n",
-    ": 성능을 1차로 빠르게 확인하기 위해 만든 파일\n",
-    "\n",
-    "pandas profiling을 보고 결측치를 평균값 or 최빈값으로 채우고,\n",
-    "명목형 원핫인코딩, 연속형 minmaxscaling 적용후 모델링 및 성능확인\n",
-    "<트리 계열> : XGBoost, Gradient Boosting, RandomForest\n",
-    "<회귀 계열> : Linear Regression, Ridge, Rasso, Elastic Net\n",
-    "=> \n"
-   ]
-  }
- ],
- "metadata": {
-  "language_info": {
-   "name": "python"
-  },
-  "orig_nbformat": 4
- },
- "nbformat": 4,
- "nbformat_minor": 2
-}
+## 0. first_commit
+- 목적: 초기 성능 확인을 위한 파일
+- 작업 내용:
+  - pandas profiling을 통한 데이터 결측치 처리 (평균값 또는 최빈값)
+  - 명목형 특성 원핫인코딩
+  - 연속형 특성 Min-Max Scaling
+- 모델링 및 성능 확인:
+  - 트리 계열: XGBoost, Gradient Boosting, RandomForest
+  - 회귀 계열: Linear Regression, Ridge, Lasso, Elastic Net
+  - 이후 단계에서는 XGBoost와 Gradient만 사용
+
+## '1. 순서형 적용.ipynb'
+- 목적: 'order_data.ipynb'에서 추출한 특성 활용을 위한 파일
+- 작업 내용:
+  - 명목형, 순서형, 연속형 특성을 피클 파일로 가져와 전처리
+- 모델링 진행
+
+## 2. 타겟변수 적용.ipynb
+- 목적: 타겟변수 분포 확인 및 로그 정규화 적용을 위한 파일
+- 작업 내용:
+  - 'SalePrice'의 분포 확인 후 로그 정규화
+- 모델링 진행
+
+## 3. 결측치 적용.ipynb
+- 목적: 결측치 대치를 위한 파일
+- 작업 내용:
+  - 결측치 포함된 특성을 프로파일링하고 결측치 대치
+- 모델링 진행
+
+## 4. 상위 특성 50개.ipynb
+- 목적: 상위 특성 활용을 위한 파일
+- 작업 내용:
+  - '결측치 적용.ipynb'의 모델에서 Feature Importance 기준으로 상위 50개 특성 추출
+- 모델링 진행 (top_n_feature 함수 활용)
+
+## 5. 1차 파생변수.ipynb
+- 목적: 데이터 설명과 skew_feature.ipynb에서 파생변수 생성을 위한 파일
+- 작업 내용:
+  - 의미있는 파생변수 생성
+  - 0이 매우 많은 변수에 대해 가중치를 적용하는 파생변수 생성
+
+## 6. 파라미터 튜닝.ipynb
+- 목적: XGBoost 모델 파라미터 튜닝을 위한 파일
+- 작업 내용:
+  - 그리드서치를 사용한 하이퍼파라미터 튜닝 진행
+
+## 7. 파생변수 + 파라미터 튜닝.ipynb
+- 목적: 파생변수와 파라미터 튜닝을 함께 적용한 파일
+- 작업 내용:
+  - 생성한 파생변수와 파라미터 튜닝을 모두 적용한 모델링 진행
